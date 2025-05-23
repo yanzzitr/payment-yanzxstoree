@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bisnis Kami</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: white;
+      color: #333;
+    }
+    header {
+      background-color: #007BFF;
+      color: white;
+      padding: 30px 20px;
+      text-align: center;
+    }
+    section {
+      padding: 40px 20px;
+      text-align: center;
+    }
+    .layanan {
+      background-color: #f0f8ff;
+    }
+    footer {
+      background-color: #007BFF;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+    h1, h2 {
+      margin-bottom: 10px;
+    }
+    p {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Selamat Datang di Bisnis Kami</h1>
+    <p>Solusi terbaik untuk kebutuhan Anda</p>
+  </header>
+
+  <section>
+    <h2>Tentang Kami</h2>
+    <p>Kami adalah perusahaan yang bergerak di bidang layanan profesional, berkomitmen untuk memberikan pelayanan terbaik dan terpercaya kepada klien kami.</p>
+  </section>
+
+  <section class="layanan">
+    <h2>Layanan Kami</h2>
+    <p>Kami menyediakan berbagai layanan seperti konsultasi, pelatihan, dan solusi bisnis digital yang dapat disesuaikan dengan kebutuhan Anda.</p>
+  </section>
+
+  <section>
+    <h2>Hubungi Kami</h2>
+    <p>Email: info yanzx46khususjb@gmail.com<br>Telepon: +62 859-2296-8106 </p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Bisnis Kami. Semua hak dilindungi.</p>
+  </footer>
+
+</body>
+</html>
