@@ -61,7 +61,7 @@
   <section>
     <h2>Laporan Masalah</h2>
     <p>Jika Anda menemukan masalah, silakan laporkan langsung ke developer kami via WhatsApp:</p>
-    <a class="whatsapp-button" href="https://wa.me/6281234567890?text=Halo%20developer,%20saya%20menemukan%20masalah%20pada%20website%20Anda" target="_blank">
+    <a class="whatsapp-button" href="https://wa.me/6285922968106?text=Halo%20developer,%20saya%20menemukan%20masalah%20pada%20website%20Anda" target="_blank">
       Laporkan via WhatsApp
     </a>
   </section>
