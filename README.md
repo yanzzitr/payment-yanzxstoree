@@ -1,73 +1,70 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bisnis Kami</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pembayaran QR</title>
   <style>
     body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: white;
-      color: #333;
-    }
-    header {
-      background-color: #007BFF;
-      color: white;
-      padding: 30px 20px;
-      text-align: center;
-    }
-    section {
-      padding: 40px 20px;
-      text-align: center;
-      background-color: #f0f8ff;
-    }
-    footer {
-      background-color: #007BFF;
-      color: white;
+      font-family: Arial, sans-serif;
+      background-color: #f8f9fa;
       text-align: center;
       padding: 20px;
     }
-    h1, h2 {
+    h1 {
+      color: #333;
+    }
+    .payment-methods {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 30px;
+    }
+    .method {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 200px;
+    }
+    .method img {
+      width: 150px;
+      height: 150px;
+      object-fit: contain;
       margin-bottom: 10px;
     }
-    p {
-      max-width: 600px;
-      margin: 0 auto;
-    }
-    .whatsapp-button {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 10px 20px;
-      background-color: #25D366;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      text-decoration: none;
-      font-size: 16px;
+    .method h3 {
+      margin: 0;
+      font-size: 1.1em;
+      color: #555;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Selamat Datang di Bisnis Kami</h1>
-  </header>
 
-  <section>
-    <h2>Layanan Kami</h2>
-    <p>Kami menyediakan berbagai layanan terbaik untuk mendukung bisnis Anda.</p>
-  </section>
+  <h1>Pilih Metode Pembayaran</h1>
 
-  <section>
-    <h2>Laporan Masalah</h2>
-    <p>Jika Anda menemukan masalah, silakan laporkan langsung ke developer kami via WhatsApp:</p>
-    <a class="whatsapp-button" href="https://wa.me/6285922968106?text=Halo%20developer,%20saya%20menemukan%20masalah%20pada%20website%20Anda" target="_blank">
-      Laporkan via WhatsApp
-    </a>
-  </section>
+  <div class="payment-methods">
+    <div class="method">
+      <img src="qris.png" alt="QRIS">
+      <h3>QRIS</h3>
+    </div>
+    <div class="method">
+      <img src="dana.png" alt="Dana">
+      <h3>Dana</h3>
+    </div>
+    <div class="method">
+      <img src="ovo.png" alt="OVO">
+      <h3>OVO</h3>
+    </div>
+    <div class="method">
+      <img src="gopay.png" alt="GoPay">
+      <h3>GoPay</h3>
+    </div>
+  </div>
 
-  <footer>
-    &copy; 2025 Bisnis Kami. Semua hak dilindungi.
-  </footer>
+  <p>Scan QR sesuai metode yang Anda gunakan untuk membayar.</p>
+
 </body>
 </html>
