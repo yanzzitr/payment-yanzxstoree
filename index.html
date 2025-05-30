@@ -7,22 +7,26 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-image: url('https://files.catbox.moe/z7i46b.jpg');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
       margin: 0;
       padding: 20px;
       text-align: center;
+      background-image: url('https://files.catbox.moe/zymp4u.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      min-height: 100vh;
     }
+
     .container {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 20px;
     }
+
     .card {
-      background: #fff;
+      background: rgba(255, 255, 255, 0.9); /* Transparan agar kontras bagus di atas background */
       padding: 15px;
       border-radius: 10px;
       width: 220px;
@@ -30,22 +34,27 @@
       cursor: pointer;
       transition: transform 0.2s;
     }
+
     .card:hover {
       transform: scale(1.03);
     }
+
     .card img {
       width: 100%;
       height: 100px;
       object-fit: contain;
     }
+
     .info {
       margin-top: 10px;
       display: none;
       color: #333;
     }
+
     .info.active {
       display: block;
     }
+
     .toast {
       position: fixed;
       bottom: 30px;
@@ -59,12 +68,15 @@
       pointer-events: none;
       transition: opacity 0.3s ease;
     }
+
     .toast.show {
       opacity: 1;
     }
+
     .actions {
       margin-top: 50px;
     }
+
     .actions button {
       margin: 10px;
       padding: 10px 20px;
@@ -73,10 +85,12 @@
       font-weight: bold;
       cursor: pointer;
     }
+
     .whatsapp-btn {
       background-color: #25D366;
       color: white;
     }
+
     .report-btn {
       background-color: #ff4d4d;
       color: white;
