@@ -1,60 +1,130 @@
-<!DOCTYPE html><html lang="id">
+<!DOCTYPE html>
+<html lang="id">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pilih Metode Pembayaran</title>
+  <title>Pembayaran Digital</title>
   <style>
     body {
       font-family: Arial, sans-serif;
+      background: #f7f7f7;
+      margin: 0;
+      padding: 20px;
       text-align: center;
-      background-color: #f4f4f4;
-    }
-    h2 {
-      margin-top: 20px;
     }
     .container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
       gap: 20px;
-      padding: 20px;
-      max-width: 900px;
-      margin: auto;
     }
     .card {
-      background: white;
+      background: #fff;
       padding: 15px;
       border-radius: 10px;
+      width: 220px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
       cursor: pointer;
       transition: transform 0.2s;
     }
     .card:hover {
-      transform: scale(1.02);
+      transform: scale(1.03);
     }
     .card img {
-      max-width: 100%;
+      width: 100%;
       height: 100px;
       object-fit: contain;
     }
     .info {
       margin-top: 10px;
-      font-weight: bold;
-    }
-    .hidden {
       display: none;
+      color: #333;
     }
-    .click-text {
-      margin-top: 30px;
-      font-size: 14px;
-      color: #555;
+    .info.active {
+      display: block;
+    }
+    .toast {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #333;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 5px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .toast.show {
+      opacity: 1;
     }
   </style>
 </head>
 <body>
+
   <h2>Pilih Metode Pembayaran</h2>
+
   <div class="container">
+
     <!-- QRIS -->
-    <div class="card" onclick="showQris()">
-      <img id="qris-img" src="https://files.catbox.moe/a25324.jpg" alt="QRIS">
-      <div id="qris-qrcode" class="hidden">
-        <img src="https://files.catbox.moe/q3mutv.jpg" alt
+    <div class="card" onclick="toggleQris(this)">
+      <img id="qris-logo" src="https://files.catbox.moe/a25324.jpg" alt="QRIS">
+      <img id="qris-img" src="https://files.catbox.moe/q3mutv.jpg" alt="QR Pembayaran" style="display:none; margin-top:10px;">
+    </div>
+
+    <!-- DANA -->
+    <div class="card" onclick="toggleInfo('dana-info')">
+      <img src="https://files.catbox.moe/vxuyz6.jpg" alt="DANA">
+      <div id="dana-info" class="info">
+        <strong>DANA</strong><br>
+        <span onclick="copyToClipboard('0882001163626')" style="color:blue;cursor:pointer;">0882001163626</span>
+      </div>
+    </div>
+
+    <!-- OVO -->
+    <div class="card" onclick="toggleInfo('ovo-info')">
+      <img src="https://files.catbox.moe/v7qt9n.jpg" alt="OVO">
+      <div id="ovo-info" class="info">
+        <strong>OVO</strong><br>
+        <span onclick="copyToClipboard('0882001163626')" style="color:blue;cursor:pointer;">0882001163626</span>
+      </div>
+    </div>
+
+    <!-- GoPay -->
+    <div class="card" onclick="toggleInfo('gopay-info')">
+      <img src="https://files.catbox.moe/mug23y.jpg" alt="GoPay">
+      <div id="gopay-info" class="info">
+        <strong>GoPay</strong><br>
+        <span onclick="copyToClipboard('0882001163626')" style="color:blue;cursor:pointer;">0882001163626</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="toast" id="toast">Nomor disalin ke clipboard!</div>
+
+  <script>
+    function toggleQris(card) {
+      const logo = card.querySelector('#qris-logo');
+      const qris = card.querySelector('#qris-img');
+      logo.style.display = 'none';
+      qris.style.display = 'block';
+    }
+
+    function toggleInfo(id) {
+      const el = document.getElementById(id);
+      el.classList.toggle('active');
+    }
+
+    function copyToClipboard(text) {
+      navigator.clipboard.writeText(text).then(() => {
+        const toast = document.getElementById("toast");
+        toast.classList.add("show");
+        setTimeout(() => toast.classList.remove("show"), 2000);
+      });
+    }
+  </script>
+
+</body>
+</html>
