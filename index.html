@@ -36,9 +36,10 @@
     }
     .method img {
       width: 200px;
-      height: 200px;
+      height: auto;
       object-fit: contain;
       border-radius: 10px;
+      margin-top: 10px;
     }
     .method h3 {
       margin-top: 15px;
@@ -75,8 +76,8 @@
 
   <div class="payment-container">
 
-    <div class="method" onclick="window.open('https://files.catbox.moe/q3mutv.jpg', '_blank')">
-      <img src="https://files.catbox.moe/q3mutv.jpg" alt="QRIS">
+    <div class="method" onclick="openQrisImages()">
+      <img src="https://files.catbox.moe/a25324.jpg" alt="QRIS">
       <h3>QRIS (Semua E-Wallet)</h3>
     </div>
 
@@ -84,18 +85,21 @@
       <img src="https://upload.wikimedia.org/wikipedia/commons/1/10/Logo_dana_blue.svg" alt="DANA">
       <h3>DANA</h3>
       <p>0882001163626</p>
+      <img src="https://files.catbox.moe/vxuyz6.jpg" alt="DANA QR" />
     </div>
 
     <div class="method" onclick="copyToClipboard('0882001163626')">
       <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Logo_OVO_purple.svg" alt="OVO">
       <h3>OVO</h3>
       <p>0882001163626</p>
+      <img src="https://files.catbox.moe/v7qt9n.jpg" alt="OVO QR" />
     </div>
 
     <div class="method" onclick="copyToClipboard('0882001163626')">
       <img src="https://upload.wikimedia.org/wikipedia/commons/0/0f/Logo_GoPay.svg" alt="GoPay">
       <h3>GoPay</h3>
       <p>0882001163626</p>
+      <img src="https://files.catbox.moe/mug23y.jpg" alt="GoPay Tambahan" />
     </div>
 
   </div>
@@ -111,6 +115,11 @@
         toast.classList.add("show");
         setTimeout(() => toast.classList.remove("show"), 2000);
       });
+    }
+
+    function openQrisImages() {
+      window.open('https://files.catbox.moe/a25324.jpg', '_blank');
+      window.open('https://files.catbox.moe/q3mutv.jpg', '_blank');
     }
   </script>
 
