@@ -1,127 +1,60 @@
-<!DOCTYPE html>
-<html lang="id">
+<!DOCTYPE html><html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Pembayaran Digital</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pilih Metode Pembayaran</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
-      margin: 0;
-      padding: 20px;
       text-align: center;
+      background-color: #f4f4f4;
     }
-    h1 {
-      color: #333;
+    h2 {
+      margin-top: 20px;
     }
-    .payment-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 30px;
-      margin-top: 30px;
-    }
-    .method {
-      background-color: #fff;
-      border-radius: 15px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
       padding: 20px;
-      width: 250px;
+      max-width: 900px;
+      margin: auto;
+    }
+    .card {
+      background: white;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
       cursor: pointer;
       transition: transform 0.2s;
     }
-    .method:hover {
-      transform: scale(1.03);
+    .card:hover {
+      transform: scale(1.02);
     }
-    .method img {
-      width: 200px;
-      height: auto;
+    .card img {
+      max-width: 100%;
+      height: 100px;
       object-fit: contain;
-      border-radius: 10px;
+    }
+    .info {
       margin-top: 10px;
+      font-weight: bold;
     }
-    .method h3 {
-      margin-top: 15px;
-      font-size: 1.2em;
+    .hidden {
+      display: none;
+    }
+    .click-text {
+      margin-top: 30px;
+      font-size: 14px;
       color: #555;
-    }
-    .method p {
-      font-size: 1em;
-      color: #222;
-      margin-top: 8px;
-    }
-    .toast {
-      position: fixed;
-      bottom: 30px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #333;
-      color: #fff;
-      padding: 10px 20px;
-      border-radius: 5px;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s ease;
-      z-index: 1000;
-    }
-    .toast.show {
-      opacity: 1;
     }
   </style>
 </head>
 <body>
-
-  <h1>Pilih Metode Pembayaran</h1>
-
-  <div class="payment-container">
-
-    <div class="method" onclick="openQrisImages()">
-      <img src="https://files.catbox.moe/a25324.jpg" alt="QRIS">
-      <h3>QRIS (Semua E-Wallet)</h3>
-    </div>
-
-    <div class="method" onclick="copyToClipboard('0882001163626')">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/1/10/Logo_dana_blue.svg" alt="DANA">
-      <h3>DANA</h3>
-      <p>0882001163626</p>
-      <img src="https://files.catbox.moe/vxuyz6.jpg" alt="DANA QR" />
-    </div>
-
-    <div class="method" onclick="copyToClipboard('0882001163626')">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Logo_OVO_purple.svg" alt="OVO">
-      <h3>OVO</h3>
-      <p>0882001163626</p>
-      <img src="https://files.catbox.moe/v7qt9n.jpg" alt="OVO QR" />
-    </div>
-
-    <div class="method" onclick="copyToClipboard('0882001163626')">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/0/0f/Logo_GoPay.svg" alt="GoPay">
-      <h3>GoPay</h3>
-      <p>0882001163626</p>
-      <img src="https://files.catbox.moe/mug23y.jpg" alt="GoPay Tambahan" />
-    </div>
-
-  </div>
-
-  <p style="margin-top: 40px; color: #666;">Klik metode pembayaran untuk melihat QR atau menyalin nomor.</p>
-
-  <div id="toast" class="toast">Nomor disalin ke clipboard!</div>
-
-  <script>
-    function copyToClipboard(text) {
-      navigator.clipboard.writeText(text).then(() => {
-        const toast = document.getElementById("toast");
-        toast.classList.add("show");
-        setTimeout(() => toast.classList.remove("show"), 2000);
-      });
-    }
-
-    function openQrisImages() {
-      window.open('https://files.catbox.moe/a25324.jpg', '_blank');
-      window.open('https://files.catbox.moe/q3mutv.jpg', '_blank');
-    }
-  </script>
-
-</body>
-</html>
+  <h2>Pilih Metode Pembayaran</h2>
+  <div class="container">
+    <!-- QRIS -->
+    <div class="card" onclick="showQris()">
+      <img id="qris-img" src="https://files.catbox.moe/a25324.jpg" alt="QRIS">
+      <div id="qris-qrcode" class="hidden">
+        <img src="https://files.catbox.moe/q3mutv.jpg" alt
