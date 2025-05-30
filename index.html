@@ -8,14 +8,36 @@
     body {
       font-family: Arial, sans-serif;
       margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      background: url('https://files.catbox.moe/zymp4u.jpg') no-repeat center center fixed;
+      background-size: cover;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Overlay gelap transparan */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.4); /* bisa ubah opacity di sini */
+      z-index: 0;
+    }
+
+    main {
+      position: relative;
+      z-index: 1;
       padding: 20px;
       text-align: center;
-      background-image: url('https://files.catbox.moe/zymp4u.jpg');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      min-height: 100vh;
+      color: white;
+    }
+
+    h2 {
+      color: #fff;
     }
 
     .container {
@@ -23,14 +45,15 @@
       flex-wrap: wrap;
       justify-content: center;
       gap: 20px;
+      margin-top: 20px;
     }
 
     .card {
-      background: rgba(255, 255, 255, 0.9); /* Transparan agar kontras bagus di atas background */
+      background: rgba(255, 255, 255, 0.95);
       padding: 15px;
       border-radius: 10px;
       width: 220px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
       cursor: pointer;
       transition: transform 0.2s;
     }
@@ -67,6 +90,7 @@
       opacity: 0;
       pointer-events: none;
       transition: opacity 0.3s ease;
+      z-index: 2;
     }
 
     .toast.show {
@@ -98,54 +122,53 @@
   </style>
 </head>
 <body>
+  <main>
+    <h2>Pilih Metode Pembayaran</h2>
 
-  <h2>Pilih Metode Pembayaran</h2>
+    <div class="container">
+      <!-- QRIS -->
+      <div class="card" onclick="toggleQris(this)">
+        <img id="qris-logo" src="https://files.catbox.moe/a25324.jpg" alt="QRIS">
+        <img id="qris-img" src="https://files.catbox.moe/q3mutv.jpg" alt="QR Pembayaran" style="display:none; margin-top:10px;">
+      </div>
 
-  <div class="container">
+      <!-- DANA -->
+      <div class="card" onclick="toggleInfo('dana-info')">
+        <img src="https://files.catbox.moe/vxuyz6.jpg" alt="DANA">
+        <div id="dana-info" class="info">
+          <strong>DANA</strong><br>
+          <span onclick="copyToClipboard('0882001163626')" style="color:blue;cursor:pointer;">0882001163626</span>
+        </div>
+      </div>
 
-    <!-- QRIS -->
-    <div class="card" onclick="toggleQris(this)">
-      <img id="qris-logo" src="https://files.catbox.moe/a25324.jpg" alt="QRIS">
-      <img id="qris-img" src="https://files.catbox.moe/q3mutv.jpg" alt="QR Pembayaran" style="display:none; margin-top:10px;">
-    </div>
+      <!-- OVO -->
+      <div class="card" onclick="toggleInfo('ovo-info')">
+        <img src="https://files.catbox.moe/v7qt9n.jpg" alt="OVO">
+        <div id="ovo-info" class="info">
+          <strong>OVO</strong><br>
+          <span onclick="copyToClipboard('0882001163626')" style="color:blue;cursor:pointer;">0882001163626</span>
+        </div>
+      </div>
 
-    <!-- DANA -->
-    <div class="card" onclick="toggleInfo('dana-info')">
-      <img src="https://files.catbox.moe/vxuyz6.jpg" alt="DANA">
-      <div id="dana-info" class="info">
-        <strong>DANA</strong><br>
-        <span onclick="copyToClipboard('0882001163626')" style="color:blue;cursor:pointer;">0882001163626</span>
+      <!-- GoPay -->
+      <div class="card" onclick="toggleInfo('gopay-info')">
+        <img src="https://files.catbox.moe/mug23y.jpg" alt="GoPay">
+        <div id="gopay-info" class="info">
+          <strong>GoPay</strong><br>
+          <span onclick="copyToClipboard('0882001163626')" style="color:blue;cursor:pointer;">0882001163626</span>
+        </div>
       </div>
     </div>
 
-    <!-- OVO -->
-    <div class="card" onclick="toggleInfo('ovo-info')">
-      <img src="https://files.catbox.moe/v7qt9n.jpg" alt="OVO">
-      <div id="ovo-info" class="info">
-        <strong>OVO</strong><br>
-        <span onclick="copyToClipboard('0882001163626')" style="color:blue;cursor:pointer;">0882001163626</span>
-      </div>
+    <div class="actions">
+      <a href="https://wa.me/6281234567890" target="_blank">
+        <button class="whatsapp-btn">💬 Hubungi Developer via WhatsApp</button>
+      </a>
+      <a href="mailto:emailkamu@example.com?subject=Masalah Pembayaran" target="_blank">
+        <button class="report-btn">🚨 Laporkan Masalah</button>
+      </a>
     </div>
-
-    <!-- GoPay -->
-    <div class="card" onclick="toggleInfo('gopay-info')">
-      <img src="https://files.catbox.moe/mug23y.jpg" alt="GoPay">
-      <div id="gopay-info" class="info">
-        <strong>GoPay</strong><br>
-        <span onclick="copyToClipboard('0882001163626')" style="color:blue;cursor:pointer;">0882001163626</span>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="actions">
-    <a href="https://wa.me/6281234567890" target="_blank">
-      <button class="whatsapp-btn">💬 Hubungi Developer via WhatsApp</button>
-    </a>
-    <a href="mailto:emailkamu@example.com?subject=Masalah Pembayaran" target="_blank">
-      <button class="report-btn">🚨 Laporkan Masalah</button>
-    </a>
-  </div>
+  </main>
 
   <div class="toast" id="toast">Nomor disalin ke clipboard!</div>
 
@@ -170,6 +193,5 @@
       });
     }
   </script>
-
 </body>
 </html>
