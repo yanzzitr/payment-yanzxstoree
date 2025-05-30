@@ -3,18 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Pembayaran QR</title>
+  <title>Pembayaran Digital</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #f8f9fa;
-      text-align: center;
+      background-color: #f4f4f4;
+      margin: 0;
       padding: 20px;
+      text-align: center;
     }
     h1 {
       color: #333;
     }
-    .payment-methods {
+    .payment-container {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
@@ -23,21 +24,26 @@
     }
     .method {
       background-color: #fff;
-      padding: 20px;
       border-radius: 15px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      width: 200px;
+      padding: 20px;
+      width: 250px;
     }
     .method img {
-      width: 150px;
-      height: 150px;
+      width: 200px;
+      height: 200px;
       object-fit: contain;
-      margin-bottom: 10px;
+      border-radius: 10px;
     }
     .method h3 {
-      margin: 0;
-      font-size: 1.1em;
+      margin-top: 15px;
+      font-size: 1.2em;
       color: #555;
+    }
+    .method p {
+      font-size: 1em;
+      color: #222;
+      margin-top: 8px;
     }
   </style>
 </head>
@@ -45,26 +51,34 @@
 
   <h1>Pilih Metode Pembayaran</h1>
 
-  <div class="payment-methods">
+  <div class="payment-container">
+
     <div class="method">
-      <img src="qris.png" alt="QRIS">
-      <h3>QRIS</h3>
+      <img src="https://files.catbox.moe/q3mutv.jpg" alt="QRIS">
+      <h3>QRIS (Semua E-Wallet)</h3>
     </div>
+
     <div class="method">
-      <img src="dana.png" alt="Dana">
-      <h3>Dana</h3>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/1/10/Logo_dana_blue.svg" alt="DANA">
+      <h3>DANA</h3>
+      <p>0882001163626</p>
     </div>
+
     <div class="method">
-      <img src="ovo.png" alt="OVO">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Logo_OVO_purple.svg" alt="OVO">
       <h3>OVO</h3>
+      <p>0882001163626</p>
     </div>
+
     <div class="method">
-      <img src="gopay.png" alt="GoPay">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/0/0f/Logo_GoPay.svg" alt="GoPay">
       <h3>GoPay</h3>
+      <p>0882001163626</p>
     </div>
+
   </div>
 
-  <p>Scan QR sesuai metode yang Anda gunakan untuk membayar.</p>
+  <p style="margin-top: 40px; color: #666;">Silakan scan QR atau transfer ke nomor di atas sesuai metode pilihan Anda.</p>
 
 </body>
 </html>
