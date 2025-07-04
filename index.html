@@ -46,7 +46,7 @@
 <body>
 
   <!-- ===== MUSIK LATAR ===== -->
-  <audio id="bgMusic" src="https://files.catbox.moe/s2innw.opus" loop playsinline></audio>
+  <audio id="bgMusic" src="https://files.catbox.moe/ww3y9a.mp3" loop playsinline></audio>
 
   <main>
     <h2>Pilih Metode Pembayaran</h2>
@@ -116,21 +116,21 @@
       });
     }
 
-    /* ---------- MUSIK: play saat gesture pertama ---------- */
+    /* ---------- MUSIK: autoplay atau play saat gesture ---------- */
     const bgMusic = document.getElementById('bgMusic');
-    bgMusic.volume = 0.8;          // sesuaikan (0.0–1.0)
+    bgMusic.volume = 1.0;      // penuh
 
-    // Coba autoplay saat load (desktop kadang mengizinkan)
+    // coba autoplay (mungkin diizinkan di desktop)
     window.addEventListener('load', () => {
       bgMusic.play().catch(()=>{});   // abaikan error
     });
 
-    // Jika ditolak, play saat sentuhan / klik pertama
-    function resumeAudio(){
-      bgMusic.play().catch(()=>{});   // akan berhasil karena ada gesture
-      document.removeEventListener('pointerdown', resumeAudio);
-    }
-    document.addEventListener('pointerdown', resumeAudio, { once:true });
+    // sentuhan / klik pertama → play
+    const resume = () => {
+      bgMusic.play().catch(()=>{});
+      document.removeEventListener('pointerdown', resume);
+    };
+    document.addEventListener('pointerdown', resume, { once:true });
   </script>
 </body>
 </html>
