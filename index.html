@@ -116,21 +116,24 @@
       });
     }
 
-    /* ---------- MUSIK: autoplay atau play saat gesture ---------- */
+    /* ---------- MUSIK: selalu hidupkan jika ter-pause ---------- */
     const bgMusic = document.getElementById('bgMusic');
-    bgMusic.volume = 1.0;      // penuh
+    bgMusic.volume = 1.0;          // 100 %
 
-    // coba autoplay (mungkin diizinkan di desktop)
+    /* coba autoplay saat load (desktop) */
     window.addEventListener('load', () => {
-      bgMusic.play().catch(()=>{});   // abaikan error
+      bgMusic.play().catch(()=>{});
     });
 
-    // sentuhan / klik pertama → play
-    const resume = () => {
-      bgMusic.play().catch(()=>{});
-      document.removeEventListener('pointerdown', resume);
-    };
-    document.addEventListener('pointerdown', resume, { once:true });
+    /* setiap gesture → pastikan musik main */
+    function ensureMusic(){
+      if (bgMusic.paused){
+        bgMusic.play().catch(()=>{});
+      }
+    }
+    document.addEventListener('pointerdown', ensureMusic);
+    document.addEventListener('touchstart', ensureMusic);
+    document.addEventListener('click', ensureMusic);
   </script>
 </body>
 </html>
