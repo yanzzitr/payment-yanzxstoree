@@ -128,7 +128,7 @@
       margin: 15px 0;
     }
     section { padding: 60px 20px; text-align: center; }
-    #beranda, #loginPage, #privatePage { position: relative; z-index: 1; }
+    #beranda, #loginPage, #privatePage, #testimoniPage { position: relative; z-index: 1; }
     /* Halaman login */
     .login-box {
       background: rgba(255,255,255,0.95);
@@ -166,6 +166,7 @@
     <h3>Menu</h3>
     <a href="#beranda">🏠 Beranda</a>
     <a href="#" onclick="goToLogin()">🔐 Private</a>
+    <a href="#" onclick="goToTestimoni()">💬 Testimoni</a>
   </div>
 
   <audio id="bgMusic" src="https://files.catbox.moe/uuqok3.mp3" loop playsinline></audio>
@@ -226,6 +227,18 @@
     </main>
   </section>
 
+  <!-- Halaman Testimoni -->
+  <section id="testimoniPage" style="display:none;">
+    <main>
+      <h2>Testimoni Pengguna</h2>
+      <div style="max-width:500px;margin:auto;text-align:left;">
+        <p>⭐ “Pembayaran cepat dan aman.” – Budi</p>
+        <p>⭐ “Pelayanan ramah dan profesional.” – Sari</p>
+        <p>⭐ “Mudah digunakan, sangat membantu.” – Andi</p>
+      </div>
+    </main>
+  </section>
+
   <div class="toast" id="toast">Nomor disalin ke clipboard!</div>
 
   <script>
@@ -263,7 +276,15 @@
       toggleSidebar();
       document.getElementById("beranda").style.display = "none";
       document.getElementById("privatePage").style.display = "none";
+      document.getElementById("testimoniPage").style.display = "none";
       document.getElementById("loginPage").style.display = "block";
+    }
+    function goToTestimoni(){
+      toggleSidebar();
+      document.getElementById("beranda").style.display = "none";
+      document.getElementById("loginPage").style.display = "none";
+      document.getElementById("privatePage").style.display = "none";
+      document.getElementById("testimoniPage").style.display = "block";
     }
     function login(){
       const user = document.getElementById("username").value;
